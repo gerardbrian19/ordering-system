@@ -1,0 +1,87 @@
+/*
+ * Goldcomm Corporation — Custom CSS
+ * Only add styles that Tailwind cannot handle.
+ * Keep this file minimal.
+ */
+
+/* ── Brand Colors ──────────────────────────────────────────── */
+:root {
+    --brand-red:        #C8102E;
+    --brand-red-dark:   #A50D25;
+    --brand-red-light:  #FEECEC;
+    --brand-red-tint:   #FFF5F5;
+    --brand-gold:       #F5A800;
+    --brand-gold-dark:  #D48B00;
+    --brand-dark:       #111111;
+}
+
+/* Smooth page transitions */
+body {
+    transition: opacity 0.15s ease;
+}
+
+/* Product card image zoom effect */
+.product-card img {
+    transition: transform 0.3s ease;
+}
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Hide scrollbar but keep scrolling (for horizontal category list) */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+/* Cart badge pulse animation */
+@keyframes badge-pulse {
+    0%, 100% { transform: scale(1); }
+    50%       { transform: scale(1.25); }
+}
+.cart-badge-animate {
+    animation: badge-pulse 0.3s ease;
+}
+
+/* ── Chatbot Panel ─────────────────────────────────── */
+#chatbot-panel {
+    height: 440px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+}
+
+#chatbot-messages {
+    scroll-behavior: smooth;
+}
+
+/* ── Modal Backdrop (used on checkout, services, address) ── */
+.modal-open {
+    overflow: hidden;
+}
+
+/* ── Service card hover lift ───────────────────────── */
+.service-card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+}
+
+/* ── Status badge colours (extra safety for dynamic rendering) ── */
+.status-pending    { background-color: #FEF3C7; color: #92400E; }
+.status-processing { background-color: #DBEAFE; color: #1E40AF; }
+.status-shipped    { background-color: #E0E7FF; color: #3730A3; }
+.status-delivered  { background-color: #D1FAE5; color: #065F46; }
+.status-cancelled  { background-color: #FEE2E2; color: #991B1B; }
+.status-confirmed  { background-color: #D1FAE5; color: #065F46; }
+
+/* ── Line-clamp utility (Tailwind CDN includes this, kept as fallback) ── */
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
