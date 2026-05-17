@@ -52,7 +52,7 @@
             </div>
             <p class="text-center text-xs text-gray-400 mt-1.5">
                 Need more help?
-                <a href="/messages.php" class="text-[#C8102E] hover:underline">Chat with staff →</a>
+                <a href="/customer/messages.php" class="text-[#C8102E] hover:underline">Chat with staff →</a>
             </p>
         </div>
     </div>

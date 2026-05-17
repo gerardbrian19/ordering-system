@@ -150,7 +150,7 @@ $statusCounts = array_count_values(array_column($orders, 'status'));
 
 $csrfToken = generateCsrfToken();
 
-require_once __DIR__ . '/../../includes/admin_nav.php';
+require_once __DIR__ . '/../../includes/admin/nav.php';
 ?>
 
 <!-- Flash messages -->
@@ -479,4 +479,4 @@ function closeStatusModal() {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/admin_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>

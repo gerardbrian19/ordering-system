@@ -4,18 +4,18 @@
  * Requires: $pageTitle (string) and $activePage (string) set before including.
  * Requires: session_start() already called by the consuming page.
  */
-require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/../auth.php';
+require_once __DIR__ . '/../functions.php';
 
 $pageTitle  = $pageTitle  ?? 'Goldcomm';
 $activePage = $activePage ?? '';
 
 $navItems = [
-    ['href' => '/index.php',       'label' => 'Products',  'key' => 'products'],
-    ['href' => '/services.php',    'label' => 'Services',  'key' => 'services'],
-    ['href' => '/orders.php',      'label' => 'My Orders', 'key' => 'orders'],
-    ['href' => '/my_bookings.php', 'label' => 'Bookings',  'key' => 'bookings'],
-    ['href' => '/messages.php',    'label' => 'Messages',  'key' => 'messages'],
+    ['href' => '/index.php',                'label' => 'Products',  'key' => 'products'],
+    ['href' => '/customer/services.php',    'label' => 'Services',  'key' => 'services'],
+    ['href' => '/customer/orders.php',      'label' => 'My Orders', 'key' => 'orders'],
+    ['href' => '/customer/my_bookings.php', 'label' => 'Bookings',  'key' => 'bookings'],
+    ['href' => '/customer/messages.php',    'label' => 'Messages',  'key' => 'messages'],
 ];
 ?>
 <!DOCTYPE html>
@@ -65,7 +65,7 @@ $navItems = [
             <div class="flex items-center gap-1.5 shrink-0">
 
                 <!-- Cart -->
-                <a href="/cart.php"
+                <a href="/customer/cart.php"
                    class="relative p-2 text-gray-500 hover:text-[#C8102E] hover:bg-[#FFF5F5] rounded-lg transition"
                    aria-label="View cart">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -109,8 +109,7 @@ $navItems = [
                                 <?= e($_SESSION['role'] ?? 'customer') ?> account
                             </p>
                         </div>
-                        <a href="/shipping_address.php"
-                           class="flex items-center gap-2.5 px-4 py-2.5 text-gray-700 hover:bg-gray-50 transition">
+                        <a href="/customer/shipping_address.php"
                             <svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
@@ -163,7 +162,7 @@ $navItems = [
             <?= $item['label'] ?>
         </a>
         <?php endforeach; ?>
-        <a href="/shipping_address.php"
+        <a href="/customer/shipping_address.php"
            class="flex items-center px-3 py-2.5 text-sm text-gray-700 rounded-lg hover:bg-gray-50">
             Shipping Address
         </a>

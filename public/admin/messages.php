@@ -122,7 +122,7 @@ foreach ($conversations as $c) {
 $activeMessages = $messageThreads[$activeConvId] ?? [];
 $csrfToken      = generateCsrfToken();
 
-require_once __DIR__ . '/../../includes/admin_nav.php';
+require_once __DIR__ . '/../../includes/admin/nav.php';
 ?>
 
 <!-- Flash messages -->
@@ -349,4 +349,4 @@ if (convSearch) {
 }
 </script>
 
-<?php require_once __DIR__ . '/../../includes/admin_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>

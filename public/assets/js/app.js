@@ -107,7 +107,7 @@ const chatbotResponses = [
       reply: "Hello! Welcome to Goldcomm Corporation 📡 How can I help you today? Ask me about radios, orders, services, or delivery." },
 
     { pattern: /\b(track|order|status|where.*order|order.*status)\b/i,
-      reply: "You can track your orders on the <a href='/orders.php' class='underline text-[#C8102E]'>My Orders</a> page. Each order shows its current status and estimated delivery date." },
+      reply: "You can track your orders on the <a href='/customer/orders.php' class='underline text-[#C8102E]'>My Orders</a> page. Each order shows its current status and estimated delivery date." },
 
     { pattern: /\b(pay|payment|gcash|bank\s*transfer|paymaya|reference)\b/i,
       reply: "We accept GCash, Bank Transfer, and Paymaya. After checkout, provide your reference number and upload a payment screenshot for verification." },
@@ -116,46 +116,46 @@ const chatbotResponses = [
       reply: "Standard delivery takes 3–5 business days within Metro Manila. Shipping fee is ₱80 (free for orders ₱2,000 and above)." },
 
     { pattern: /\b(return|refund|exchange|wrong.*item|damage|defect)\b/i,
-      reply: "For returns and refunds on radio equipment, contact our staff via <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a> within 7 days. We honor manufacturer warranties." },
+      reply: "For returns and refunds on radio equipment, contact our staff via <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a> within 7 days. We honor manufacturer warranties." },
 
     { pattern: /\b(cancel|cancell?ation)\b/i,
-      reply: "Orders can be cancelled while in 'Pending' status. Go to <a href='/orders.php' class='underline text-[#C8102E]'>My Orders</a> to request a cancellation." },
+      reply: "Orders can be cancelled while in 'Pending' status. Go to <a href='/customer/orders.php' class='underline text-[#C8102E]'>My Orders</a> to request a cancellation." },
 
     { pattern: /\b(program|programming|frequency|channel|ctcss|dcs|tone)\b/i,
-      reply: "We offer <strong>Radio Programming</strong> for ₱299 — covering Motorola, ICOM, Kenwood, Baofeng, and more. <a href='/services.php' class='underline text-[#C8102E]'>Book now →</a>" },
+      reply: "We offer <strong>Radio Programming</strong> for ₱299 — covering Motorola, ICOM, Kenwood, Baofeng, and more. <a href='/customer/services.php' class='underline text-[#C8102E]'>Book now →</a>" },
 
     { pattern: /\b(repair|broken|fix|not.*work|damage)\b/i,
-      reply: "Our <strong>Radio Repair</strong> service starts at ₱500. We service handheld, mobile, and base station radios. <a href='/services.php' class='underline text-[#C8102E]'>Book a repair →</a>" },
+      reply: "Our <strong>Radio Repair</strong> service starts at ₱500. We service handheld, mobile, and base station radios. <a href='/customer/services.php' class='underline text-[#C8102E]'>Book a repair →</a>" },
 
     { pattern: /\b(install|installation|repeater|setup|system)\b/i,
-      reply: "We handle full radio system installations and repeater setups. Visit our <a href='/services.php' class='underline text-[#C8102E]'>Services</a> page for details and booking." },
+      reply: "We handle full radio system installations and repeater setups. Visit our <a href='/customer/services.php' class='underline text-[#C8102E]'>Services</a> page for details and booking." },
 
     { pattern: /\b(service|book|appointment)\b/i,
-      reply: "We offer Radio Programming, Installation, Repair, Repeater Setup, Coverage Survey, and more! <a href='/services.php' class='underline text-[#C8102E]'>Browse our services →</a>" },
+      reply: "We offer Radio Programming, Installation, Repair, Repeater Setup, Coverage Survey, and more! <a href='/customer/services.php' class='underline text-[#C8102E]'>Browse our services →</a>" },
 
     { pattern: /\b(motorola|icom|kenwood|yaesu|baofeng|kirisun|alinco|entel|diamond|furuno|standard\s*horizon)\b/i,
       reply: "Yes, we carry a wide range of brands including Motorola, ICOM, Kenwood, Yaesu, Baofeng, Kirisun, Diamond, and more! <a href='/index.php' class='underline text-[#C8102E]'>Browse our catalogue →</a>" },
 
     { pattern: /\b(contact|staff|human|agent|talk.*person)\b/i,
-      reply: "You can chat directly with our team on the <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a> page. Available Mon–Sat, 8 AM–6 PM." },
+      reply: "You can chat directly with our team on the <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a> page. Available Mon–Sat, 8 AM–6 PM." },
 
     { pattern: /\b(cart|add.*cart|remove.*cart)\b/i,
       reply: "Manage your cart from the <a href='/index.php' class='underline text-[#C8102E]'>Products</a> page, or click the cart icon in the top nav to review your items." },
 
     { pattern: /\b(address|shipping\s*address|change.*address|delivery\s*address)\b/i,
-      reply: "Add or edit delivery addresses on the <a href='/shipping_address.php' class='underline text-[#C8102E]'>Shipping Address</a> page." },
+      reply: "Add or edit delivery addresses on the <a href='/customer/shipping_address.php' class='underline text-[#C8102E]'>Shipping Address</a> page." },
 
     { pattern: /\b(price|how much|cost|quote)\b/i,
-      reply: "Check our latest prices on the <a href='/index.php' class='underline text-[#C8102E]'>Products</a> page. For bulk orders or custom quotations, contact us via <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a>." },
+      reply: "Check our latest prices on the <a href='/index.php' class='underline text-[#C8102E]'>Products</a> page. For bulk orders or custom quotations, contact us via <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a>." },
 
     { pattern: /\b(warranty|guarantee)\b/i,
       reply: "Warranty coverage: 1 year for radio body; 3 months for accessories. For warranty claims, please message our support team." },
 ];
 
 const fallbackReplies = [
-    "I'm not sure about that, but our team can help! Visit the <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a> page.",
-    "Great question! Please reach out to our staff via <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a> for a detailed answer.",
-    "I don't have that info right now. Try the <a href='/messages.php' class='underline text-[#C8102E]'>Messages</a> page to chat with our radio experts.",
+    "I'm not sure about that, but our team can help! Visit the <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a> page.",
+    "Great question! Please reach out to our staff via <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a> for a detailed answer.",
+    "I don't have that info right now. Try the <a href='/customer/messages.php' class='underline text-[#C8102E]'>Messages</a> page to chat with our radio experts.",
 ];
 
 function getChatbotReply(input) {

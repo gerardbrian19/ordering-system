@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'My Cart';
 $activePage = 'products';
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -85,7 +85,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
                 🎉 You qualify for free shipping!
             </p>
 
-            <a href="/checkout.php"
+            <a href="/customer/checkout.php"
                class="mt-5 flex items-center justify-center gap-2 w-full bg-[#C8102E] text-white
                       font-semibold rounded-xl py-3 hover:bg-[#A50D25] transition active:scale-95">
                 Proceed to Checkout
@@ -218,4 +218,4 @@ renderCart();
 }); // DOMContentLoaded
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

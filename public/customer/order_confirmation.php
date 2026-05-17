@@ -1,12 +1,12 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'Order Confirmed';
 $activePage = 'orders';
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-2xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
@@ -129,7 +129,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
 
     <!-- CTA Buttons -->
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-        <a href="/orders.php"
+        <a href="/customer/orders.php"
            class="flex-1 flex items-center justify-center gap-2 bg-[#C8102E] text-white font-semibold
                   rounded-xl py-3 hover:bg-[#A50D25] transition">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,4 +194,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

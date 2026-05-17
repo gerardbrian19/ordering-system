@@ -4,8 +4,8 @@
  * Requires: $pageTitle (string) and $activePage (string) set before including.
  * Requires: session_start() already called by the consuming page.
  */
-require_once __DIR__ . '/auth.php';
-require_once __DIR__ . '/functions.php';
+require_once __DIR__ . '/../auth.php';
+require_once __DIR__ . '/../functions.php';
 
 requireAdmin();
 

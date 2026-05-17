@@ -31,7 +31,7 @@ $lowStockItems = array_values(array_filter($products, fn($p) => $p['stock'] <= 5
 $outOfStock    = array_values(array_filter($products, fn($p) => !$p['in_stock']));
 $inStockCount  = count(array_filter($products, fn($p) => $p['in_stock']));
 
-require_once __DIR__ . '/../../includes/staff_nav.php';
+require_once __DIR__ . '/../../includes/staff/nav.php';
 ?>
 
 <!-- ── Read-only notice ──────────────────────────────────────────────────── -->
@@ -254,4 +254,4 @@ categoryFilter.addEventListener('change', applyFilters);
 stockFilter.addEventListener('change', applyFilters);
 </script>
 
-<?php require_once __DIR__ . '/../../includes/staff_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/staff/footer.php'; ?>

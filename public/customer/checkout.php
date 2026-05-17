@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'Checkout';
 $activePage = 'products';
@@ -16,14 +16,14 @@ $defaultAddress = [
     'zip'      => '1600',
 ];
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
 
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-sm text-gray-500 mb-6">
-        <a href="/cart.php" class="hover:text-[#C8102E] transition">Cart</a>
+        <a href="/customer/cart.php" class="hover:text-[#C8102E] transition">Cart</a>
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
         </svg>
@@ -46,7 +46,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
                         </svg>
                         Shipping Address
                     </h2>
-                    <a href="/shipping_address.php"
+                    <a href="/customer/shipping_address.php"
                        class="text-sm text-[#C8102E] hover:text-[#A50D25] font-medium transition">
                         Change
                     </a>
@@ -384,4 +384,4 @@ document.getElementById('confirm-payment-btn').addEventListener('click', () => {
 }); // DOMContentLoaded
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

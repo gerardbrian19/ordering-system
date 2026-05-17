@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'Book Services';
 $activePage = 'services';
@@ -17,7 +17,7 @@ $services = [
     ['id'=>8, 'title'=>'Radio Rental',             'price'=>200.00,   'duration'=>'/ day',    'icon'=>'🔄', 'desc'=>'Short-term rental of handheld radios for events, construction projects, and temporary deployments.'],
 ];
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -55,7 +55,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
 
     <!-- My Bookings Link -->
     <div class="mt-8 text-center">
-        <a href="/my_bookings.php"
+        <a href="/customer/my_bookings.php"
            class="inline-flex items-center gap-2 text-sm text-[#C8102E] hover:text-[#A50D25] font-medium transition">
             View my bookings
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,7 +200,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
                            hover:bg-gray-50 transition text-sm">
                 Close
             </button>
-            <a href="/my_bookings.php"
+            <a href="/customer/my_bookings.php"
                class="flex-1 bg-[#C8102E] text-white font-semibold rounded-xl py-2.5 text-sm
                       hover:bg-[#A50D25] transition text-center">
                 View Bookings
@@ -285,4 +285,4 @@ successModal.addEventListener('click', e => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'My Orders';
 $activePage = 'orders';
@@ -104,7 +104,7 @@ $statusIcons = [
     'Cancelled'  => '❌',
 ];
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -285,4 +285,4 @@ searchInput.addEventListener('input', e => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

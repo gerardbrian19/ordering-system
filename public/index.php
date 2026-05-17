@@ -24,7 +24,7 @@ $products = [
 
 $categories = ['All', 'Handheld Radios', 'Digital Radios', 'Marine Radios', 'Mobile Radios', 'Accessories'];
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../includes/customer/nav.php';
 ?>
 
 <!-- ═══════════════════════════════════════════════════════ HERO ══════ -->
@@ -208,8 +208,8 @@ require_once __DIR__ . '/../includes/customer_nav.php';
                 <h4 class="text-sm font-semibold text-gray-900 mb-3">Quick Links</h4>
                 <ul class="space-y-2 text-sm text-gray-500">
                     <li><a href="/index.php"    class="hover:text-[#C8102E] transition">Home</a></li>
-                    <li><a href="/cart.php"     class="hover:text-[#C8102E] transition">Cart</a></li>
-                    <li><a href="/orders.php"   class="hover:text-[#C8102E] transition">My Orders</a></li>
+                    <li><a href="/customer/cart.php"     class="hover:text-[#C8102E] transition">Cart</a></li>
+                    <li><a href="/customer/orders.php"   class="hover:text-[#C8102E] transition">My Orders</a></li>
                 </ul>
             </div>
             <div>
@@ -281,4 +281,4 @@ document.getElementById('sort-select').addEventListener('change', e => {
     cards.forEach(card => grid.appendChild(card));
 });
 </script>
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/customer/footer.php'; ?>

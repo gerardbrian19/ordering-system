@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once __DIR__ . '/../includes/functions.php';
-require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../../includes/functions.php';
+require_once __DIR__ . '/../../includes/auth.php';
 
 $pageTitle  = 'My Bookings';
 $activePage = 'bookings';
@@ -54,7 +54,7 @@ $statusIcons = [
     'Cancelled' => '❌',
 ];
 
-require_once __DIR__ . '/../includes/customer_nav.php';
+require_once __DIR__ . '/../../includes/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -65,7 +65,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
             <h1 class="text-2xl font-bold text-gray-900">My Bookings</h1>
             <p class="text-sm text-gray-500 mt-1">Manage your service appointments</p>
         </div>
-        <a href="/services.php"
+        <a href="/customer/services.php"
            class="inline-flex items-center gap-2 bg-[#C8102E] text-white font-semibold rounded-xl
                   px-4 py-2.5 text-sm hover:bg-[#A50D25] transition self-start sm:self-auto">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -127,7 +127,7 @@ require_once __DIR__ . '/../includes/customer_nav.php';
         <div class="text-5xl mb-4">📋</div>
         <h3 class="text-lg font-semibold text-gray-700">No bookings yet</h3>
         <p class="text-sm text-gray-500 mt-1 mb-5">Book a service to get started.</p>
-        <a href="/services.php"
+        <a href="/customer/services.php"
            class="inline-flex items-center gap-2 bg-[#C8102E] text-white font-semibold rounded-xl
                   px-5 py-2.5 text-sm hover:bg-[#A50D25] transition">
             Browse Services
@@ -247,4 +247,4 @@ cancelModal.addEventListener('click', e => {
 filterBookings();
 </script>
 
-<?php require_once __DIR__ . '/../includes/customer_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>

@@ -41,7 +41,7 @@ $lowStockItems    = array_values(array_filter($products, fn($p) => $p['stock'] <
 // Unread message count (static)
 $unreadMessages = 3;
 
-require_once __DIR__ . '/../../includes/staff_nav.php';
+require_once __DIR__ . '/../../includes/staff/nav.php';
 ?>
 
 <!-- ═══════════════════════════════════════════════════ KPI CARDS ═══ -->
@@ -261,4 +261,4 @@ require_once __DIR__ . '/../../includes/staff_nav.php';
     </div>
 </div>
 
-<?php require_once __DIR__ . '/../../includes/staff_footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/staff/footer.php'; ?>
