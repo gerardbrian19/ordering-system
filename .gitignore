@@ -1,5 +1,18 @@
 # macOS
 .DS_Store
+Thumbs.db
 
 # PHP
 *.log
+config/config.php
+
+# Node / Playwright
+node_modules/
+playwright-report/
+test-results/
+blob-report/
+.playwright/
+
+# Environment
+.env
+.env.local
