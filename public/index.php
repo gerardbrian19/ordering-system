@@ -24,7 +24,7 @@ $products = [
 
 $categories = ['All', 'Handheld Radios', 'Digital Radios', 'Marine Radios', 'Mobile Radios', 'Accessories'];
 
-require_once __DIR__ . '/../includes/customer/nav.php';
+require_once __DIR__ . '/../includes/layouts/customer/nav.php';
 ?>
 
 <!-- ═══════════════════════════════════════════════════════ HERO ══════ -->
@@ -281,4 +281,4 @@ document.getElementById('sort-select').addEventListener('change', e => {
     cards.forEach(card => grid.appendChild(card));
 });
 </script>
-<?php require_once __DIR__ . '/../includes/customer/footer.php'; ?>
+<?php require_once __DIR__ . '/../includes/layouts/customer/footer.php'; ?>

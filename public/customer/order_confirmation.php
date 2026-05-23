@@ -6,7 +6,7 @@ require_once __DIR__ . '/../../includes/auth.php';
 $pageTitle  = 'Order Confirmed';
 $activePage = 'orders';
 
-require_once __DIR__ . '/../../includes/customer/nav.php';
+require_once __DIR__ . '/../../includes/layouts/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-2xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-10">
@@ -194,4 +194,4 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/customer/footer.php'; ?>

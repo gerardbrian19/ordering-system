@@ -108,7 +108,7 @@ $categories = ['Handheld Radios', 'Digital Radios', 'Marine Radios', 'Mobile Rad
 
 $csrfToken = generateCsrfToken();
 
-require_once __DIR__ . '/../../includes/admin/nav.php';
+require_once __DIR__ . '/../../includes/layouts/admin/nav.php';
 ?>
 
 <!-- Flash messages -->
@@ -595,4 +595,4 @@ categoryFilter.addEventListener('change', filterProducts);
 stockFilter.addEventListener('change', filterProducts);
 </script>
 
-<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/admin/footer.php'; ?>

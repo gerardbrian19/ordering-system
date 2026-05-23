@@ -42,7 +42,7 @@ $messages = [
     ['from' => 'staff',    'text' => 'Sure, I can help you track your order!',                                 'time' => '10:45 AM'],
 ];
 
-require_once __DIR__ . '/../../includes/customer/nav.php';
+require_once __DIR__ . '/../../includes/layouts/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-5xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -257,4 +257,4 @@ mobileBackBtn.addEventListener('click', () => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/customer/footer.php'; ?>

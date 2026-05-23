@@ -54,7 +54,7 @@ $statusIcons = [
     'Cancelled' => '❌',
 ];
 
-require_once __DIR__ . '/../../includes/customer/nav.php';
+require_once __DIR__ . '/../../includes/layouts/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-4xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -247,4 +247,4 @@ cancelModal.addEventListener('click', e => {
 filterBookings();
 </script>
 
-<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/customer/footer.php'; ?>

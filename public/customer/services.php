@@ -17,7 +17,7 @@ $services = [
     ['id'=>8, 'title'=>'Radio Rental',             'price'=>200.00,   'duration'=>'/ day',    'icon'=>'🔄', 'desc'=>'Short-term rental of handheld radios for events, construction projects, and temporary deployments.'],
 ];
 
-require_once __DIR__ . '/../../includes/customer/nav.php';
+require_once __DIR__ . '/../../includes/layouts/customer/nav.php';
 ?>
 
 <main class="flex-1 max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-8">
@@ -285,4 +285,4 @@ successModal.addEventListener('click', e => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/customer/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/customer/footer.php'; ?>

@@ -60,7 +60,7 @@ foreach ($products as $p) {
 // ── Status counts ───────────────────────────────────────────────────────────
 $statusCounts = array_count_values(array_column($orders, 'status'));
 
-require_once __DIR__ . '/../../includes/admin/nav.php';
+require_once __DIR__ . '/../../includes/layouts/admin/nav.php';
 ?>
 
 <!-- ═══════════════════════════════════════════════════ KPI CARDS ═══ -->
@@ -271,4 +271,4 @@ require_once __DIR__ . '/../../includes/admin/nav.php';
 
 </div>
 
-<?php require_once __DIR__ . '/../../includes/admin/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/admin/footer.php'; ?>

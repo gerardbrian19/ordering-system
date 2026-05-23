@@ -175,7 +175,7 @@ $statusCounts = array_count_values(array_column($orders, 'status'));
 
 $csrfToken = generateCsrfToken();
 
-require_once __DIR__ . '/../../includes/staff/nav.php';
+require_once __DIR__ . '/../../includes/layouts/staff/nav.php';
 ?>
 
 <!-- Flash messages -->
@@ -745,4 +745,4 @@ document.addEventListener('keydown', (e) => {
 });
 </script>
 
-<?php require_once __DIR__ . '/../../includes/staff/footer.php'; ?>
+<?php require_once __DIR__ . '/../../includes/layouts/staff/footer.php'; ?>
