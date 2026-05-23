@@ -15,6 +15,7 @@ A lightweight ecommerce and ordering web application built as a college thesis p
 | Email       | PHPMailer v7.1 (SMTP)            |
 | Migrations  | Phinx v0.16                      |
 | Environment | vlucas/phpdotenv v5              |
+| Logging     | Monolog v3                       |
 | Testing     | Playwright (Node.js E2E)         |
 | Dev Server  | PHP Built-in Server              |
 | Icons       | Heroicons / Font Awesome CDN     |

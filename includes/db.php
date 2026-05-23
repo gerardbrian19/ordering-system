@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/logger.php';
 
 try {
     $pdo = new PDO(
@@ -13,7 +14,7 @@ try {
         ]
     );
 } catch (PDOException $e) {
-    // In production, log this and show a generic error
+    getLogger()->critical('Database connection failed', ['error' => $e->getMessage()]);
     http_response_code(500);
     exit('Database connection failed.');
 }

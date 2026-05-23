@@ -13,6 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/logger.php';
 
 /**
  * Send an email via SMTP (PHPMailer).
@@ -53,7 +54,7 @@ function sendMail(
         $mail->send();
         return true;
     } catch (Exception $e) {
-        error_log('Mailer error [' . $to . ']: ' . $mail->ErrorInfo);
+        getLogger()->error('Mailer error', ['to' => $to, 'error' => $mail->ErrorInfo]);
         return false;
     }
 }

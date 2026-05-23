@@ -16,6 +16,9 @@ define('DB_PASS', $_ENV['DB_PASS'] ?? '');
 define('APP_NAME', $_ENV['APP_NAME'] ?? 'Goldcomm');
 define('APP_URL',  $_ENV['APP_URL']  ?? 'http://localhost:8000');
 
+// Logging
+define('LOG_LEVEL', $_ENV['LOG_LEVEL'] ?? 'debug');
+
 // SMTP / email settings (optional — app won't break if absent)
 define('SMTP_HOST',      $_ENV['SMTP_HOST']      ?? 'smtp.gmail.com');
 define('SMTP_PORT',      (int)($_ENV['SMTP_PORT'] ?? 587));

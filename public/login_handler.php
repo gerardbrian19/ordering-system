@@ -5,8 +5,8 @@
  * TODO: Connect to the database and verify credentials.
  */
 require_once __DIR__ . '/../includes/session.php';
-
 require_once __DIR__ . '/../includes/auth.php';
+require_once __DIR__ . '/../includes/logger.php';
 
 // Only accept POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // CSRF check
 $submittedToken = $_POST['csrf_token'] ?? '';
 if (!validateCsrfToken($submittedToken)) {
+    getLogger('security')->warning('CSRF token mismatch on login', ['ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown']);
     $_SESSION['login_error'] = 'Invalid request. Please try again.';
     header('Location: /login.php');
     exit;
@@ -48,12 +49,14 @@ $staticUsers = [
 $user = $staticUsers[strtolower($email)] ?? null;
 
 if (!$user || $user['password'] !== $password) {
+    getLogger('security')->warning('Failed login attempt', ['email' => $email, 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown']);
     $_SESSION['login_error'] = 'Incorrect email or password.';
     header('Location: /login.php');
     exit;
 }
 
 session_regenerate_id(true);
+getLogger('security')->info('User logged in', ['user_id' => $user['id'], 'role' => $user['role'], 'ip' => $_SERVER['REMOTE_ADDR'] ?? 'unknown']);
 $_SESSION['user_id']   = $user['id'];
 $_SESSION['user_name'] = $user['name'];
 $_SESSION['role']      = $user['role'];
