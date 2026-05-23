@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/../../includes/session.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../includes/auth.php';
 
@@ -32,7 +32,7 @@ $conversations = [
 
 // Messages for conversation #1
 $messages = [
-    ['from' => 'staff',    'text' => 'Hello Juan! Welcome to ShopEase Support. How can I assist you today?', 'time' => '10:30 AM'],
+    ['from' => 'staff',    'text' => 'Hello Juan! Welcome to Goldcomm Support. How can I assist you today?', 'time' => '10:30 AM'],
     ['from' => 'customer', 'text' => 'Hi, I wanted to ask about the status of my order SE-20260118-002.',     'time' => '10:31 AM'],
     ['from' => 'staff',    'text' => 'Of course! Let me look that up for you. One moment please.',             'time' => '10:33 AM'],
     ['from' => 'staff',    'text' => 'I can see your order for Running Sneakers Pro is currently shipped and is on its way to you. Expected delivery is January 21, 2026.',  'time' => '10:35 AM'],

@@ -4,7 +4,11 @@ Thumbs.db
 
 # PHP
 *.log
+*.tmp
 vendor/
+
+# Database dumps
+*.sql
 
 # Node / Playwright
 node_modules/
@@ -16,3 +20,10 @@ blob-report/
 # Environment
 .env
 .env.local
+
+# IDE
+.idea/
+
+# Uploaded files (keep folder, ignore contents)
+public/assets/images/uploads/*
+!public/assets/images/uploads/.gitkeep

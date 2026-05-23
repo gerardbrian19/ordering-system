@@ -1,12 +1,12 @@
 /**
- * Auth helper for ShopEase Playwright tests.
+ * Auth helper for Goldcomm Playwright tests.
  * Handles login for each role using the static credentials from login_handler.php.
  */
 
 const USERS = {
-  customer: { email: 'customer@shopease.com', password: 'customer123', name: 'Juan dela Cruz' },
-  staff:    { email: 'staff@shopease.com',    password: 'staff123',    name: 'Maria Santos' },
-  admin:    { email: 'admin@shopease.com',     password: 'admin123',    name: 'Admin User' },
+  customer: { email: 'customer@goldcomm.com', password: 'customer123', name: 'Juan dela Cruz' },
+  staff:    { email: 'staff@goldcomm.com',    password: 'staff123',    name: 'Maria Santos' },
+  admin:    { email: 'admin@goldcomm.com',     password: 'admin123',    name: 'Admin User' },
 };
 
 const REDIRECTS = {

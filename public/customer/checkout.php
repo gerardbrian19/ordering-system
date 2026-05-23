@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/../../includes/session.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../includes/auth.php';
 
@@ -162,7 +162,7 @@ require_once __DIR__ . '/../../includes/layouts/customer/nav.php';
             <div id="payment-instructions" class="bg-gray-50 rounded-xl p-4 text-sm space-y-1.5">
                 <p class="font-semibold text-gray-800" id="instr-title">GCash Instructions</p>
                 <p class="text-gray-600" id="instr-line1">Send payment to: <strong>0917-123-4567</strong></p>
-                <p class="text-gray-600" id="instr-line2">Account name: <strong>ShopEase Store</strong></p>
+                <p class="text-gray-600" id="instr-line2">Account name: <strong>Goldcomm Store</strong></p>
                 <p class="text-gray-600 text-xs" id="instr-note">After sending, enter the reference number and upload your screenshot below.</p>
             </div>
 
@@ -278,12 +278,12 @@ const paymentDetails = {
     gcash: {
         title: 'GCash Instructions',
         line1: 'Send payment to: <strong>0917-123-4567</strong>',
-        line2: 'Account name: <strong>ShopEase Store</strong>',
+        line2: 'Account name: <strong>Goldcomm Store</strong>',
     },
     bank: {
         title: 'Bank Transfer Instructions',
         line1: 'BDO Savings Account: <strong>1234-5678-9012</strong>',
-        line2: 'Account name: <strong>ShopEase Corporation</strong>',
+        line2: 'Account name: <strong>Goldcomm Corporation</strong>',
     },
 };
 
@@ -377,7 +377,7 @@ document.getElementById('confirm-payment-btn').addEventListener('click', () => {
         status: 'Pending',
     };
 
-    localStorage.setItem('shopease_last_order', JSON.stringify(order));
+    localStorage.setItem('goldcomm_last_order', JSON.stringify(order));
     clearCart();
     window.location.href = '/order_confirmation.php';
 });

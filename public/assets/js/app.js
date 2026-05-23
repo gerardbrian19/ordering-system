@@ -1,6 +1,6 @@
 // ─── Cart (localStorage) ────────────────────────────────────────────────────
 
-const CART_KEY = 'shopease_cart';
+const CART_KEY = 'goldcomm_cart';
 
 function getCart() {
     try {
@@ -180,7 +180,7 @@ function initChatbot() {
         if (!panel.classList.contains('hidden')) {
             inputEl?.focus();
             if (messagesEl && messagesEl.children.length === 0) {
-                appendChatMessage('Hi! I\'m ShopEase Assistant 🤖 Ask me about orders, shipping, payments, or our services!', 'bot');
+                appendChatMessage('Hi! I\'m Goldcomm Assistant 🤖 Ask me about orders, shipping, payments, or our services!', 'bot');
             }
             if (messagesEl) messagesEl.scrollTop = messagesEl.scrollHeight;
         }

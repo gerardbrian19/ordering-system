@@ -1,19 +1,23 @@
-# ShopEase — Ordering & Inventory Management System
+# Goldcomm — Ordering & Inventory Management System
 
-A lightweight ecommerce and ordering web application built as a college thesis project. No frameworks — just pure PHP, MySQL, Tailwind CSS, and vanilla JavaScript.
+A lightweight ecommerce and ordering web application built as a college thesis project. No web framework — pure PHP 8.5 with PDO, PHPMailer for transactional email, and Phinx for database migrations.
 
 ---
 
 ## Tech Stack
 
-| Layer      | Technology                  |
-|------------|-----------------------------|
-| Backend    | PHP 8.5                     |
-| Database   | MySQL 9.6                   |
-| Styling    | Tailwind CSS v3 (CDN)       |
-| Scripting  | Vanilla JavaScript (ES6+)   |
-| Dev Server | PHP Built-in Server         |
-| Icons      | Heroicons / Font Awesome CDN|
+| Layer       | Technology                      |
+|-------------|----------------------------------|
+| Backend     | PHP 8.5                          |
+| Database    | MySQL 9.6                        |
+| Styling     | Tailwind CSS v3 (CDN)            |
+| Scripting   | Vanilla JavaScript (ES6+)        |
+| Email       | PHPMailer v7.1 (SMTP)            |
+| Migrations  | Phinx v0.16                      |
+| Environment | vlucas/phpdotenv v5              |
+| Testing     | Playwright (Node.js E2E)         |
+| Dev Server  | PHP Built-in Server              |
+| Icons       | Heroicons / Font Awesome CDN     |
 
 ---
 
@@ -58,86 +62,93 @@ git clone https://github.com/gerardbrian19/ordering-system.git
 cd ordering-system
 ```
 
-### 2. Configure the Database
-
-Open `config/config.php` and update the credentials to match your environment:
-
-```php
-define('DB_HOST', '127.0.0.1');
-define('DB_NAME', 'shopease');
-define('DB_USER', 'root');
-define('DB_PASS', '');          // your MySQL password here
-```
-
-### 3. Create the Database
-
-Log into MySQL and create the database:
+### 2. Install PHP Dependencies
 
 ```bash
-mysql -u root -p
+composer install
 ```
 
-```sql
-CREATE DATABASE shopease CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE shopease;
+### 3. Configure the Environment
+
+Copy the example env file and fill in your credentials:
+
+```bash
+cp .env.example .env
 ```
 
-Then run the schema below (or import a provided `.sql` file if included):
+Then open `.env` and set your values:
 
-```sql
-CREATE TABLE users (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
-  name       VARCHAR(100) NOT NULL,
-  email      VARCHAR(150) UNIQUE NOT NULL,
-  password   VARCHAR(255) NOT NULL,
-  role       ENUM('customer', 'staff', 'admin') DEFAULT 'customer',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+```
+DB_HOST=127.0.0.1
+DB_NAME=goldcomm
+DB_USER=root
+DB_PASS=
+APP_NAME=Goldcomm
+APP_URL=http://localhost:8000
+```
 
-CREATE TABLE products (
-  id          INT AUTO_INCREMENT PRIMARY KEY,
-  name        VARCHAR(200) NOT NULL,
-  description TEXT,
-  price       DECIMAL(10,2) NOT NULL,
-  stock       INT DEFAULT 0,
-  image_url   VARCHAR(255),
-  category    VARCHAR(100),
-  created_at  TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-);
+### 4. Create the Database
 
-CREATE TABLE orders (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
-  user_id    INT NOT NULL,
-  total      DECIMAL(10,2) NOT NULL,
-  status     ENUM('pending','processing','shipped','delivered','cancelled') DEFAULT 'pending',
-  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  FOREIGN KEY (user_id) REFERENCES users(id)
-);
+```bash
+mysql -u root -p -e "CREATE DATABASE goldcomm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
+```
 
-CREATE TABLE order_items (
-  id         INT AUTO_INCREMENT PRIMARY KEY,
-  order_id   INT NOT NULL,
-  product_id INT NOT NULL,
-  quantity   INT NOT NULL,
-  unit_price DECIMAL(10,2) NOT NULL,
-  FOREIGN KEY (order_id) REFERENCES orders(id),
-  FOREIGN KEY (product_id) REFERENCES products(id)
-);
+### 5. Run Migrations
+
+```bash
+vendor/bin/phinx migrate
 ```
 
 ---
 
 ## Running the App
 
+### Start the database
+
 ```bash
-# From the project root
+brew services start mysql        # macOS (Homebrew)
+```
+
+### Start the dev server
+
+```bash
 php -S localhost:8000 -t public/
 ```
 
-Then open your browser and go to:
+Then open **http://localhost:8000** in your browser.
 
+### Stop the dev server
+
+Press `Ctrl+C` in the terminal running the server.
+
+### Stop the database
+
+```bash
+brew services stop mysql         # macOS (Homebrew)
 ```
-http://localhost:8000
+
+---
+
+## Migrations
+
+### Run all pending migrations
+
+```bash
+vendor/bin/phinx migrate
+```
+
+### Create a new migration
+
+```bash
+vendor/bin/phinx create YourMigrationName
+```
+
+The new file will be created in `db/migrations/`. Edit it to define your `up()` and `down()` methods.
+
+### Rollback the last migration
+
+```bash
+vendor/bin/phinx rollback
 ```
 
 ---
@@ -145,44 +156,83 @@ http://localhost:8000
 ## Project Structure
 
 ```
-ordering-system/
+inventory-management/
+├── .env                        ← Local environment variables (never committed)
+├── .env.example                ← Environment variable template
+├── composer.json               ← PHP dependencies (PHPMailer, Phinx, dotenv)
+├── phinx.php                   ← Phinx migration config
+├── package.json                ← Node dev dependencies (Playwright)
+├── playwright.config.js        ← E2E test config
+│
 ├── config/
-│   └── config.php          ← DB credentials & app constants
-├── includes/
-│   ├── db.php              ← PDO database connection
-│   ├── auth.php            ← Auth guards & session helpers
-│   ├── functions.php       ← Reusable utility functions
-│   ├── admin_nav.php       ← Admin navigation partial
-│   ├── staff_nav.php       ← Staff navigation partial
-│   └── customer_nav.php    ← Customer navigation partial
-├── public/                 ← Web root (PHP server serves this)
-│   ├── index.php           ← Home / product listing
+│   └── config.php              ← Loads .env, defines DB_* & APP_* constants
+│
+├── db/
+│   └── migrations/             ← Phinx migration files
+│
+├── docs/
+│   ├── PROJECT_PLAN.md
+│   ├── TECHNICAL_ROADMAP.md
+│   └── UI_DESIGN.md
+│
+├── includes/                   ← Server-side logic (never web-accessible)
+│   ├── db.php                  ← PDO connection
+│   ├── auth.php                ← Auth guards & CSRF helpers
+│   ├── session.php             ← Centralised session bootstrap (HttpOnly, SameSite)
+│   ├── mailer.php              ← PHPMailer wrapper — sendMail() helper
+│   ├── functions.php           ← Shared utility functions
+│   ├── layouts/
+│   │   ├── admin/
+│   │   │   ├── nav.php         ← Admin sidebar + HTML shell (opened)
+│   │   │   └── footer.php      ← Closes HTML shell
+│   │   ├── staff/
+│   │   │   ├── nav.php
+│   │   │   └── footer.php
+│   │   └── customer/
+│   │       ├── nav.php
+│   │       └── footer.php
+│   └── repositories/           ← DB query functions per domain
+│       ├── users.php
+│       ├── products.php
+│       ├── orders.php
+│       └── messages.php
+│
+├── public/                     ← Web root (PHP built-in server serves this)
+│   ├── index.php               ← Home / product listing
 │   ├── login.php
+│   ├── login_handler.php
 │   ├── logout.php
-│   ├── cart.php
-│   ├── checkout.php
-│   ├── orders.php          ← Customer order history
-│   ├── services.php
-│   ├── messages.php
-│   ├── my_bookings.php
-│   ├── shipping_address.php
-│   ├── order_confirmation.php
-│   ├── admin/              ← Admin panel pages
-│   │   ├── index.php
+│   ├── admin/
+│   │   ├── index.php           ← Admin dashboard
 │   │   ├── products.php
 │   │   ├── orders.php
 │   │   └── messages.php
-│   ├── staff/              ← Staff panel pages
-│   │   ├── index.php
+│   ├── staff/
+│   │   ├── index.php           ← Staff dashboard
 │   │   ├── inventory.php
 │   │   ├── orders.php
 │   │   └── messages.php
+│   ├── customer/
+│   │   ├── cart.php
+│   │   ├── checkout.php
+│   │   ├── orders.php
+│   │   ├── order_confirmation.php
+│   │   ├── services.php
+│   │   ├── messages.php
+│   │   ├── my_bookings.php
+│   │   └── shipping_address.php
 │   └── assets/
 │       ├── css/style.css
-│       └── js/app.js
-└── plan/
-    ├── PROJECT_PLAN.md
-    └── UI_DESIGN.md
+│       ├── js/app.js
+│       └── images/uploads/     ← Uploaded product images (gitignored)
+│
+└── tests/                      ← Playwright E2E tests
+    ├── auth.spec.js
+    ├── admin.spec.js
+    ├── staff.spec.js
+    ├── customer.spec.js
+    └── helpers/
+        └── auth.js
 ```
 
 ---

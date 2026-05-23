@@ -2,7 +2,7 @@
 const { defineConfig, devices } = require('@playwright/test');
 
 /**
- * Playwright configuration for ShopEase E2E tests.
+ * Playwright configuration for Goldcomm E2E tests.
  * Dev server: php -S localhost:8000 -t public/
  * @see https://playwright.dev/docs/test-configuration
  */

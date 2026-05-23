@@ -1,4 +1,4 @@
-# ShopEase — Technical Roadmap & Infrastructure Notes
+# Goldcomm — Technical Roadmap & Infrastructure Notes
 
 ---
 
@@ -19,7 +19,7 @@
   define('SMTP_HOST', 'smtp.gmail.com');
   define('SMTP_USER', 'your@email.com');
   define('SMTP_PASS', 'your-app-password');
-  define('SMTP_FROM', 'noreply@shopease.com');
+  define('SMTP_FROM', 'noreply@goldcomm.com');
   define('SMTP_PORT', 587);
   ```
 - [ ] Create `includes/mailer.php` with a `sendMail(string $to, string $subject, string $htmlBody): bool` helper
@@ -39,7 +39,7 @@
 ## 🗄️ Database Migrations
 
 ### How It Works (No Framework)
-Since ShopEase uses no framework, migrations are **versioned SQL files** tracked by a `migrations` table.
+Since Goldcomm uses no framework, migrations are **versioned SQL files** tracked by a `migrations` table.
 
 **Bootstrap once (run manually):**
 ```sql
@@ -128,7 +128,7 @@ php migrate.php
   ```
 - [ ] Set up a **cron job** for daily database backups:
   ```bash
-  0 2 * * * mysqldump -u root -p shopease > /backups/shopease_$(date +\%F).sql
+  0 2 * * * mysqldump -u root -p goldcomm > /backups/goldcomm_$(date +\%F).sql
   ```
 - [ ] Enable **MySQL slow query log** to catch performance issues early
 

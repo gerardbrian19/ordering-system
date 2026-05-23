@@ -4,7 +4,7 @@
  * Processes the login form POST.
  * TODO: Connect to the database and verify credentials.
  */
-session_start();
+require_once __DIR__ . '/../includes/session.php';
 
 require_once __DIR__ . '/../includes/auth.php';
 
@@ -40,9 +40,9 @@ if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
 // ── Static users (frontend phase — replace with DB lookup later) ──────────
 $staticUsers = [
-    'customer@shopease.com' => ['id' => 1, 'name' => 'Juan dela Cruz', 'password' => 'customer123', 'role' => 'customer'],
-    'staff@shopease.com'    => ['id' => 2, 'name' => 'Maria Santos',   'password' => 'staff123',    'role' => 'staff'],
-    'admin@shopease.com'    => ['id' => 3, 'name' => 'Admin User',     'password' => 'admin123',    'role' => 'admin'],
+    'customer@goldcomm.com' => ['id' => 1, 'name' => 'Juan dela Cruz', 'password' => 'customer123', 'role' => 'customer'],
+    'staff@goldcomm.com'    => ['id' => 2, 'name' => 'Maria Santos',   'password' => 'staff123',    'role' => 'staff'],
+    'admin@goldcomm.com'    => ['id' => 3, 'name' => 'Admin User',     'password' => 'admin123',    'role' => 'admin'],
 ];
 
 $user = $staticUsers[strtolower($email)] ?? null;

@@ -1,7 +1,7 @@
 {
-  "name": "shopease-tests",
+  "name": "goldcomm-tests",
   "version": "1.0.0",
-  "description": "Playwright E2E tests for ShopEase",
+  "description": "Playwright E2E tests for Goldcomm",
   "scripts": {
     "test": "playwright test",
     "test:ui": "playwright test --ui",

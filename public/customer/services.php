@@ -1,5 +1,5 @@
 <?php
-session_start();
+require_once __DIR__ . '/../../includes/session.php';
 require_once __DIR__ . '/../../includes/functions.php';
 require_once __DIR__ . '/../../includes/auth.php';
 
@@ -253,7 +253,7 @@ document.getElementById('booking-submit').addEventListener('click', () => {
     }
 
     // Save booking to localStorage
-    const bookings = JSON.parse(localStorage.getItem('shopease_bookings') || '[]');
+    const bookings = JSON.parse(localStorage.getItem('goldcomm_bookings') || '[]');
     bookings.push({
         id:       'SB-' + Date.now().toString().slice(-6),
         service:  selectedService.title,
@@ -266,7 +266,7 @@ document.getElementById('booking-submit').addEventListener('click', () => {
         status:   'Pending',
         created:  new Date().toISOString(),
     });
-    localStorage.setItem('shopease_bookings', JSON.stringify(bookings));
+    localStorage.setItem('goldcomm_bookings', JSON.stringify(bookings));
 
     closeBookingModal();
     successModal.classList.remove('hidden');

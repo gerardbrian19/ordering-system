@@ -1,4 +1,4 @@
-# ShopEase — Simple Ecommerce App
+# Goldcomm — Simple Ecommerce App
 ### College Thesis Project · PHP + MySQL · No Framework
 
 ---
